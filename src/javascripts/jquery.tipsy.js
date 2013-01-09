@@ -87,7 +87,17 @@
                 this.tip().remove();
             }
         },
-        
+ 
+        showWithDelay: function() {
+            var tipman = this;
+            if (this.options.delayIn == 0) {
+                this.show();
+            } else {
+                this.fixTitle();
+                setTimeout(function() { tipman.show();}, this.options.delayIn);
+            }
+        },
+ 
         fixTitle: function() {
             var $e = this.$element;
             if ($e.attr('title') || typeof($e.attr('original-title')) != 'string') {
